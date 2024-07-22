@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
-        working-directory: ./backend
         uses: actions/checkout@v2
 
       - name: List directories in root
@@ -18,7 +17,6 @@ jobs:
         run: ls -la
 
       - name: Set up Docker Buildx
-        working-directory: ./backend
         uses: docker/setup-buildx-action@v1
 
       - name: Log in to GitHub Container Registry

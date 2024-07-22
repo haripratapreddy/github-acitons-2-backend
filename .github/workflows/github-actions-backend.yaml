@@ -30,8 +30,8 @@ jobs:
         working-directory: /home/runner/work/github-acitons-2-backend/github-acitons-2-backend/backend
         uses: docker/build-push-action@v6
         with:
-          context: .
-          file: ./dockerfile
+          # context: .
+          # file: ./dockerfile
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:initial-backend-v1
 

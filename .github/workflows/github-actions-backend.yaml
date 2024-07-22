@@ -10,15 +10,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the code
+        working-directory: ./backend
         uses: actions/checkout@v2
 
       - name: List directories in root
+        working-directory: ./backend
         run: ls -la
 
       - name: Set up Docker Buildx
+        working-directory: ./backend
         uses: docker/setup-buildx-action@v1
 
       - name: Log in to GitHub Container Registry
+        working-directory: ./backend
         uses: docker/login-action@v1
         with:
           registry: ghcr.io
@@ -26,6 +30,7 @@ jobs:
           password: ${{ secrets.GHCR_SECRET_NAME }}
 
       - name: Build and push Docker image
+        working-directory: ./backend
         uses: docker/build-push-action@v2
         with:
           context: .
@@ -34,4 +39,5 @@ jobs:
           tags: ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:initial-backend-v1
 
       - name: Image digest
+        working-directory: ./backend
         run: echo ${{ steps.docker_build.outputs.digest }}

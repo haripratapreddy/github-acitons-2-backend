@@ -33,7 +33,7 @@ jobs:
           context: ./backend
           file: ./backend/dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:initial-backend-v1
+          tags: ghcr.io/${{ github.repository }}:initial-backend-v1
 
       - name: Image digest
         # working-directory: ./backend
